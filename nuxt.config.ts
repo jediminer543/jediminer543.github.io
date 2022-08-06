@@ -1,4 +1,4 @@
-//import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -24,7 +24,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "~/assets/content-format.scss"
+    '~/assets/content-format.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -39,9 +39,9 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
     // https://purgecss.com/guides/nuxt.html
-    //'nuxt-purgecss'
+    // 'nuxt-purgecss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -66,8 +66,8 @@ export default {
         'remark-math',
         'remark-mermaidjs',
         'remark-gfm',
-        'remark-github',
-        //['remark-behead', {depth: -1}] FIXME
+        'remark-github'
+        // ['remark-behead', {depth: -1}] FIXME
       ],
       rehypePlugins: [
         'rehype-mathjax'
@@ -81,9 +81,9 @@ export default {
     treeShake: true,
     theme: {
       options: {
-        customProperties: true,
+        customProperties: true
       },
-      dark: true,
+      dark: true
       /*
       themes: {
         dark: {
@@ -117,10 +117,10 @@ export default {
       'remark-math',
       'remark-mermaidjs',
       'remark-gfm',
-      'remark-github',
+      'remark-github'
     ],
-    html:{
-      minify:{
+    html: {
+      minify: {
         collapseBooleanAttributes: true,
         decodeEntities: true,
         minifyCSS: true,
@@ -141,8 +141,8 @@ export default {
       usedExports: true,
       minimize: true,
       splitChunks: {
-        chunks: "all",
-        maxSize: 100000,
+        chunks: 'all',
+        maxSize: 100000
         /*
         cacheGroups: {
           styles: {
@@ -164,8 +164,8 @@ export default {
         slug: string
       }
       const { $content } = require('@nuxt/content')
-      const blogs = await $content("blog").only(['slug']).fetch() as [contentStub]
-      const blogRoutes = blogs.map(page => "blog/"+page.slug)
+      const blogs = await $content('blog').only(['slug']).fetch() as [contentStub]
+      const blogRoutes = blogs.map(page => 'blog/' + page.slug)
       return blogRoutes
     }
   }

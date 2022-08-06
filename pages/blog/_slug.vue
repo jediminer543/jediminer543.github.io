@@ -20,7 +20,7 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'BlogSlug',
-  async asyncData({ $content, params }) {
+  async asyncData ({ $content, params }) {
     const doc = await $content('blog', params.slug).fetch()
     return { doc }
   }
