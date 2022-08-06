@@ -1,0 +1,50 @@
+{
+  "name": "jmt-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
+    "lint": "yarn lint:js",
+    "lintfix": "yarn lint:js --fix",
+    "analyze": "nuxt build --analyze",
+    "distserve": "python -m http.server 8080 --bind 127.0.0.1 -d dist"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.15.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.19.3",
+    "nuxt": "^2.15.8",
+    "puppeteer": "^16.0.0",
+    "rehype-mathjax": "^4.0.2",
+    "remark-behead": "^3.1.0",
+    "remark-gfm": "2.0.0",
+    "remark-github": "^11.2.4",
+    "remark-math": "^5.1.1",
+    "remark-mermaidjs": "^2.1.1",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify": "^2.6.1",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config-typescript": "^8.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^5.3.1",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "eslint": "^8.4.1",
+    "eslint-plugin-nuxt": "^3.1.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "nuxt-purgecss": "^1.0.0"
+  },
+  "resolutions": {
+    "**/@nuxt/types": "^2.15.8"
+  }
+}

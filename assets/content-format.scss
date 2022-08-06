@@ -1,0 +1,13 @@
+.nuxt-content h1 {
+    padding-top: .3em;
+    padding-bottom: .2em;
+    margin-bottom: .5em;
+    border-bottom: 2px solid var(--v-primary-base);
+  }
+  
+  .nuxt-content h2, .nuxt-content h3, .nuxt-content h4 {
+    padding-top: .3em;
+    padding-bottom: .2em;
+    margin-bottom: .5em;
+    border-bottom: 1px solid var(--v-primary-base);
+  }
