@@ -68,10 +68,14 @@ jobs:
           key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
-      - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Static HTML export with Nuxt
-        run: ${{ steps.detect-package-manager.outputs.manager }} run generate --fail-on-error
+      - name: Install dependencies properly?
+        run: yarn
+      #- name: Install dependencies
+      #  run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      #- name: Static HTML export with Nuxt
+      #  run: ${{ steps.detect-package-manager.outputs.manager }} run generate --fail-on-error
+      - name: Generate maybe less brokenly?
+        run: yarn generate --fail-on-error
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
