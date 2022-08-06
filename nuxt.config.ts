@@ -113,6 +113,7 @@ export default {
   build: {
     extractCSS: true,
     optimizeCSS: true,
+    standalone: true,
     transpile: [
       'remark-math',
       'remark-mermaidjs',
