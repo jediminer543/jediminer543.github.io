@@ -18,7 +18,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
-    "puppeteer": "^16.0.0",
+    "puppeteer": "^16.1.0",
     "rehype-mathjax": "^4.0.2",
     "remark-behead": "^3.1.0",
     "remark-gfm": "2.0.0",
