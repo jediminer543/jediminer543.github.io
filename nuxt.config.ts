@@ -115,7 +115,7 @@ export default {
     optimizeCSS: true,
     standalone: true,
     babel: {
-      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+      plugins: ['@babel/plugin-transform-modules-commonjs']
     },
     transpile: [
       'remark-math',
