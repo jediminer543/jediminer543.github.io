@@ -14,6 +14,8 @@
     "distserve": "python -m http.server 8080 --bind 127.0.0.1 -d dist"
   },
   "dependencies": {
+    "@babel/core": ">=7.11.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.19.3",
@@ -25,6 +27,8 @@
     "remark-github": "^11.2.4",
     "remark-math": "^5.1.1",
     "remark-mermaidjs": "^2.1.1",
+    "ts-loader": "^8.0.0",
+    "typescript": ">=2.8.0",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",

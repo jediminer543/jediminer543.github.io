@@ -114,6 +114,9 @@ export default {
     extractCSS: true,
     optimizeCSS: true,
     standalone: true,
+    babel: {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    },
     transpile: [
       'remark-math',
       'remark-mermaidjs',
