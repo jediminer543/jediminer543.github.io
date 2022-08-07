@@ -54,7 +54,7 @@ jobs:
       - name: Enumerate Generation 🖨️
         run: tree -sh
 
-  Linter:
+  Generation:
     runs-on: ${{ matrix.os }}
 
     strategy:
