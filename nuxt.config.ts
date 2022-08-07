@@ -67,11 +67,11 @@ export default {
         ['~/plugins/unified-plugin-reimport', { module: 'remark-mermaidjs' }],
         ['~/plugins/unified-plugin-reimport', { module: 'remark-gfm' }],
         ['~/plugins/unified-plugin-reimport', { module: 'remark-github' }],
-        ['~/plugins/unified-plugin-reimport', { module: 'remark-behead', options: {depth: 1}}]
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-behead', options: { depth: 1 } }]
       ],
       rehypePlugins: [
-        ['~/plugins/unified-plugin-reimport', { module: 'rehype-mathjax' }],
-        
+        ['~/plugins/unified-plugin-reimport', { module: 'rehype-mathjax' }]
+
       ]
     }
   },
@@ -155,7 +155,7 @@ export default {
 
   // https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
-    async routes() {
+    async routes () {
       interface contentStub {
         slug: string
       }

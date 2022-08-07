@@ -9,6 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
+    "eslint": "eslint",
     "lintfix": "yarn lint:js --fix",
     "analyze": "nuxt build --analyze",
     "distserve": "python -m http.server 8080 --bind 127.0.0.1 -d dist"
