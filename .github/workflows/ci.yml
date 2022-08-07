@@ -29,6 +29,9 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
 
+      - name: Setup extra tools 🛠️
+        run: sudo apt install tree
+
       - name: Get yarn cache directory path 🛠
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -48,6 +51,9 @@ jobs:
       - name: Run linter 👀
         run: yarn lint
 
-      - name: Validate Generation 👀
+      - name: Validate Generation ⚙️
         run: yarn generate --fail-on-error
+
+      - name: Enumerate Generation 🖨️
+        run: tree -sh
 

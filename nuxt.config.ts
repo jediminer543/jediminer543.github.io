@@ -63,14 +63,15 @@ export default {
   content: {
     markdown: {
       remarkPlugins: [
-        'remark-math',
-        'remark-mermaidjs',
-        'remark-gfm',
-        'remark-github'
-        // ['remark-behead', {depth: -1}] FIXME
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-math' }],
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-mermaidjs' }],
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-gfm' }],
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-github' }],
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-behead', options: {depth: 1}}]
       ],
       rehypePlugins: [
-        'rehype-mathjax'
+        ['~/plugins/unified-plugin-reimport', { module: 'rehype-mathjax' }],
+        
       ]
     }
   },
@@ -114,15 +115,6 @@ export default {
     extractCSS: true,
     optimizeCSS: true,
     standalone: true,
-    babel: {
-      plugins: ['@babel/plugin-transform-modules-commonjs']
-    },
-    transpile: [
-      'remark-math',
-      'remark-mermaidjs',
-      'remark-gfm',
-      'remark-github'
-    ],
     html: {
       minify: {
         collapseBooleanAttributes: true,
@@ -163,7 +155,7 @@ export default {
 
   // https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
-    async routes () {
+    async routes() {
       interface contentStub {
         slug: string
       }
