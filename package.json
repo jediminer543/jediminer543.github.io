@@ -2,6 +2,10 @@
   "name": "jmt-blog",
   "version": "1.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jediminer543/jediminer543.github.io.git"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -27,7 +31,7 @@
     "nuxt": "^2.15.8",
     "rehype-mathjax": "^4.0.2",
     "remark-behead": "^3.1.0",
-    "remark-gfm": "3.0.1",
+    "remark-gfm": "^1.0.0",
     "remark-github": "^11.2.4",
     "remark-math": "^5.1.1",
     "remark-mermaid": "^0.2.0",

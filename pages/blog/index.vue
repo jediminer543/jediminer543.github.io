@@ -21,23 +21,26 @@
           <v-card-text>
             <v-card v-for="post in latest" :key="post.title" outlined class="ma-4">
               <v-card-title class="headline">
-                {{ post.title }}<v-spacer /><p v-if="post.authors" class="text-subtitle-2 text-center pa-0 ma-0">
+                {{ post.title }}<v-spacer /><div v-if="post.authors" class="text-subtitle-2 text-center pa-0 ma-0">
                   Written by: {{ post.authors?.join(", ") }}
-                </p>
+                </div>
               </v-card-title>
-              <v-card-subtitle v-if="post.tags || post.description">
-                <p class="text-subtitle-2 pa-2">
+              <v-card-subtitle v-if="post.tags || post.description" class="d-flex justify-space-between">
+                <div class="text-subtitle-2 pa-2">
                   Tags: {{ post.tags?.join(", ") }}
-                </p>
+                </div>
+                <div class="text-subtitle-2 text-center pa-0 ma-0">
+                  Posted: <time class="text-subtitle-2 text-center pa-0 ma-0" :datetime="post.date">{{ new Date(post.date).toLocaleDateString() }}</time>
+                </div>
+                <!--<p v-if="post.description">{{post.description}}</p>-->
               </v-card-subtitle>
               <v-card-text>
-                <nuxt-content :document="{ body: post.excerpt }" />
+                <nuxt-content v-if="post.excerpt" :document="{ body: post.excerpt }" />
               </v-card-text>
               <v-card-actions>
                 <v-btn
-                  outlined
                   rounded
-                  text
+                  color="primary"
                   @click="$router.push('blog/'+post.slug)"
                 >
                   Read more
@@ -62,7 +65,7 @@ export default defineComponent({
         tags: { $containsNone: ['blog-wip', 'wip', 'blog-preview'] }
 
       })
-      .only(['authors', 'author', 'title', 'date', 'tags', 'excerpt', 'slug'])
+      .only(['authors', 'author', 'title', 'date', 'tags', 'excerpt', 'description', 'slug'])
       .sortBy('date', 'desc')
       .limit(5)
       .fetch()

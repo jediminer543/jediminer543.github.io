@@ -92,18 +92,14 @@ export default {
 
       // Remark
       pushDepRemark(options, 'remark-math', undefined)
-
       options.markdown.remarkPlugins.push({
         instance: require(resolve(__dirname, 'plugins/remark-shitty-mermaid')),
         name: 'remark-shitty-mermaid',
         options: undefined
       })
-
-      // pushDepRemark(options, 'remark-mermaidjs', { theme: 'dark' }, (m:any) => m["remarkMermaid"]);
-      // pushDepRemark(options, 'remark-mermaid', undefined, (m: any ) => m)
-      // pushDepRemark('remark-gfm', undefined);
-      // pushDepRemark('remark-github', undefined);
+      pushDepRemark(options, 'remark-github', undefined)
       pushDepRemark(options, 'remark-behead', { depth: 1 })
+      pushDepRemark(options, 'remark-gfm', { singleTilde: false })
       // Rehype
       pushDepRehype(options, 'rehype-mathjax', undefined)
     }
@@ -121,13 +117,13 @@ export default {
       /*
       themes: {
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          primary: `#607d8b`,
+          secondary: `#3f51b5`,
+          accent: `#673ab7`,
+          error: `#f44336`,
+          warning: `#ffc107`,
+          info: `#03a9f4`,
+          success: `#4caf50`
         }
       }
       */
@@ -147,6 +143,7 @@ export default {
   build: {
     extractCSS: true,
     optimizeCSS: true,
+    quiet: false,
     // standalone: true,
     html: {
       minify: {

@@ -2,11 +2,9 @@
   <v-row justify="center" align="center">
     <v-col>
       <v-card class="ma-4" outlined>
-        <!--
-        <v-card-title class="headline" >
+        <v-card-title class="headline">
           {{ doc.title }}
         </v-card-title>
-        -->
         <v-card-text>
           <nuxt-content :document="doc" />
         </v-card-text>

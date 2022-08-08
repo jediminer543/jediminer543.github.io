@@ -22,6 +22,29 @@ const shittyMermaid = function () {
 
       let svgPath
       try {
+        let jsonConfig
+        if (value.startsWith('%%')) {
+          // console.log('JSON TEST')
+          const badJSON = value.split('%%')[1]
+          // From:
+          const fixedJSON = badJSON
+          // Replace ":" with "@colon@" if it's between double-quotes
+            .replace(/:\s*"([^"]*)"/g, function (_match, p1) {
+              return ': "' + p1.replace(/:/g, '@colon@') + '"'
+            })
+
+          // Replace ":" with "@colon@" if it's between single-quotes
+            .replace(/:\s*'([^']*)'/g, function (_match, p1) {
+              return ': "' + p1.replace(/:/g, '@colon@') + '"'
+            })
+
+          // Add double-quotes around any tokens before the remaining ":"
+            .replace(/(['"])?([a-z0-9A-Z_]+)(['"])?\s*:/g, '"$2": ')
+
+          // Turn "@colon@" back into ":"
+            .replace(/@colon@/g, ':')
+          jsonConfig = JSON.parse(fixedJSON)
+        }
         const unique = crypto.createHmac('sha1', 'remark-shitty-mermaid').update(value).digest('hex')
         const mmdcExecutable = which.sync('mmdc', { env: { PATH: npp.PATH } })
         const mmdPath = path.join(destinationDir, `${unique}.mmd`)
@@ -31,8 +54,21 @@ const shittyMermaid = function () {
         // Write temporary file
         fs.outputFileSync(mmdPath, value)
 
+        let jsonPath
+        if (jsonConfig) {
+          jsonPath = path.join(destinationDir, `${unique}.json`)
+          fs.outputFileSync(jsonPath, JSON.stringify(jsonConfig.init))
+        }
+
         // Invoke mermaid.cli
-        execSync(`${mmdcExecutable} -i ${mmdPath} -o ${svgPath} -t dark`)
+        if (jsonPath) {
+          execSync(`${mmdcExecutable} -i ${mmdPath} -o ${svgPath} --configFile ${jsonPath}`)
+          fs.removeSync(mmdPath)
+        } else {
+          execSync(`${mmdcExecutable} -i ${mmdPath} -o ${svgPath} -t dark`)
+        }
+
+        // console.log(consoleLog.toString())
 
         // Clean up temporary file
         fs.removeSync(mmdPath)

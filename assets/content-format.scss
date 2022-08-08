@@ -3,6 +3,7 @@
     padding-bottom: .2em;
     margin-bottom: .5em;
     border-bottom: 2px solid var(--v-primary-base);
+    color: #fff !important;
   }
   
   .nuxt-content h3, .nuxt-content h4, .nuxt-content h5 {
@@ -10,4 +11,28 @@
     padding-bottom: .2em;
     margin-bottom: .5em;
     border-bottom: 1px solid var(--v-primary-base);
+    color: #fff !important;
+  }
+
+  .nuxt-content table, .nuxt-content th, .nuxt-content td {
+    border: 1px solid var(--v-primary-base);
+    padding: .1em .3em;
+    border-collapse: collapse;
+  }
+
+  .nuxt-content table {
+    border: 3px solid var(--v-primary-base);
+  }
+
+  .nuxt-content th {
+    background-color: var(--v-primary-darken2);
+    border-bottom: 2px solid var(--v-primary-base);
+  }
+
+  .nuxt-content tr:nth-child(2n) {
+    background-color: var(--v-secondary-darken2);
+  }
+
+  .nuxt-content tr:nth-child(2n+1) {
+    background-color: var(--v-secondary-lighten2);
   }
