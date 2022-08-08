@@ -1,4 +1,5 @@
 // import colors from 'vuetify/es5/util/colors'
+import { resolve } from 'path'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -60,11 +61,12 @@ export default {
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
+  /*
   content: {
     markdown: {
       remarkPlugins: [
         ['~/plugins/unified-plugin-reimport', { module: 'remark-math' }],
-        ['~/plugins/unified-plugin-reimport', { module: 'remark-mermaidjs' }],
+        ['~/plugins/unified-plugin-reimport', { module: 'remark-mermaid' }],
         ['~/plugins/unified-plugin-reimport', { module: 'remark-gfm' }],
         ['~/plugins/unified-plugin-reimport', { module: 'remark-github' }],
         ['~/plugins/unified-plugin-reimport', { module: 'remark-behead', options: { depth: 1 } }]
@@ -73,6 +75,37 @@ export default {
         ['~/plugins/unified-plugin-reimport', { module: 'rehype-mathjax' }]
 
       ]
+    }
+  },
+  */
+
+  hooks: {
+    'content:options' (options: any) {
+      async function pushDepRemark (opts: any, name: string, pluginOptions: any, targetFun: any = (m:any) => m.default) {
+        const instance = targetFun((await import(name)))
+        opts.markdown.remarkPlugins.push({ instance, name, options: pluginOptions })
+      }
+      async function pushDepRehype (opts: any, name: string, pluginOptions: any, targetFun: any = (m:any) => m.default) {
+        const instance = targetFun((await import(name)))
+        opts.markdown.rehypePlugins.push({ instance, name, options: pluginOptions })
+      }
+
+      // Remark
+      pushDepRemark(options, 'remark-math', undefined)
+
+      options.markdown.remarkPlugins.push({
+        instance: require(resolve(__dirname, 'plugins/remark-shitty-mermaid')),
+        name: 'remark-shitty-mermaid',
+        options: undefined
+      })
+
+      // pushDepRemark(options, 'remark-mermaidjs', { theme: 'dark' }, (m:any) => m["remarkMermaid"]);
+      // pushDepRemark(options, 'remark-mermaid', undefined, (m: any ) => m)
+      // pushDepRemark('remark-gfm', undefined);
+      // pushDepRemark('remark-github', undefined);
+      pushDepRemark(options, 'remark-behead', { depth: 1 })
+      // Rehype
+      pushDepRehype(options, 'rehype-mathjax', undefined)
     }
   },
 
@@ -114,7 +147,7 @@ export default {
   build: {
     extractCSS: true,
     optimizeCSS: true,
-    standalone: true,
+    // standalone: true,
     html: {
       minify: {
         collapseBooleanAttributes: true,

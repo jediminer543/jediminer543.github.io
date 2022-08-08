@@ -19,7 +19,17 @@
             <h1>Latest</h1>
           </v-card-text>
           <v-card-text>
-            <v-card v-for="post in latest" :key="post.title" outlined>
+            <v-card v-for="post in latest" :key="post.title" outlined class="ma-4">
+              <v-card-title class="headline">
+                {{ post.title }}<v-spacer /><p v-if="post.authors" class="text-subtitle-2 text-center pa-0 ma-0">
+                  Written by: {{ post.authors?.join(", ") }}
+                </p>
+              </v-card-title>
+              <v-card-subtitle v-if="post.tags || post.description">
+                <p class="text-subtitle-2 pa-2">
+                  Tags: {{ post.tags?.join(", ") }}
+                </p>
+              </v-card-subtitle>
               <v-card-text>
                 <nuxt-content :document="{ body: post.excerpt }" />
               </v-card-text>
@@ -52,7 +62,7 @@ export default defineComponent({
         tags: { $containsNone: ['blog-wip', 'wip', 'blog-preview'] }
 
       })
-      .only(['authors', 'author', 'title', 'date', 'excerpt', 'slug'])
+      .only(['authors', 'author', 'title', 'date', 'tags', 'excerpt', 'slug'])
       .sortBy('date', 'desc')
       .limit(5)
       .fetch()

@@ -1,6 +1,8 @@
 ---
 title: Blog Get
 description: Why this blog exists
+authors:
+  - jediminer543
 tags:
   - activity
   - blog
@@ -13,14 +15,15 @@ Weird isn't it; it seems kina low on the priority list. But it has a purpose
 
 This is still in progress; and below is one such test
 
+
 Lift($L$) can be determined by Lift Coefficient ($C_L$) like the following
 equation.
 
-$$
-L = \frac{1}{2} \rho v^2 S C_L
-$$
+$$ L = \frac{1}{2} \rho v^2 S C_L $$
+
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ff0000'}}}%%
 sequenceDiagram
     participant Alice
     participant Bob
