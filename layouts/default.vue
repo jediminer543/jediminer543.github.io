@@ -38,7 +38,7 @@
       >
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title style="cursor: pointer;" @click="$router.push('/')" v-text="title" />
       <v-spacer />
     </v-app-bar>
     <v-main>

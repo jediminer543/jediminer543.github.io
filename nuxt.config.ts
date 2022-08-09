@@ -191,7 +191,7 @@ export default {
       }
       const { $content } = require('@nuxt/content')
       const blogs = await $content('blog').only(['slug']).fetch() as [contentStub]
-      const blogRoutes = blogs.map(page => 'blog/' + page.slug)
+      const blogRoutes = blogs.map(page => '/blog/' + page.slug)
       return blogRoutes
     }
   }

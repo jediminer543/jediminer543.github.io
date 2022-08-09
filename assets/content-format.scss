@@ -4,6 +4,8 @@
     margin-bottom: .5em;
     border-bottom: 2px solid var(--v-primary-base);
     color: #fff !important;
+    font-family: Roboto,sans-serif !important;
+    font-weight: 400;
   }
   
   .nuxt-content h3, .nuxt-content h4, .nuxt-content h5 {
@@ -12,6 +14,8 @@
     margin-bottom: .5em;
     border-bottom: 1px solid var(--v-primary-base);
     color: #fff !important;
+    font-family: Roboto,sans-serif !important;
+    font-weight: 400;
   }
 
   .nuxt-content table, .nuxt-content th, .nuxt-content td {
@@ -22,6 +26,7 @@
 
   .nuxt-content table {
     border: 3px solid var(--v-primary-base);
+    margin-bottom: 1em;
   }
 
   .nuxt-content th {

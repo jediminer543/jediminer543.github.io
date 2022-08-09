@@ -41,7 +41,7 @@
                 <v-btn
                   rounded
                   color="primary"
-                  @click="$router.push('blog/'+post.slug)"
+                  @click="$router.push('/blog/'+post.slug)"
                 >
                   Read more
                 </v-btn>
